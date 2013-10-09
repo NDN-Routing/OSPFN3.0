@@ -53,7 +53,7 @@ am__installdirs = "$(DESTDIR)$(sbindir)"
 PROGRAMS = $(sbin_PROGRAMS)
 am_ospfn_OBJECTS = ospfn-ospfn_opaque_lsa.$(OBJEXT) \
 	ospfn-tables.$(OBJEXT) ospfn-utility.$(OBJEXT) \
-	ospfn-ccn_fib.$(OBJEXT) ospfn-ospfn.$(OBJEXT)
+	ospfn-ndn_fib.$(OBJEXT) ospfn-ospfn.$(OBJEXT)
 ospfn_OBJECTS = $(am_ospfn_OBJECTS)
 ospfn_DEPENDENCIES = ../ospfclient/libospfapiclient.la \
 	../ospfd/libospf.la ../lib/libzebra.la
@@ -248,7 +248,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 ospfn_SOURCES = \
-	ospfn_opaque_lsa.c tables.c utility.c ccn_fib.c ospfn.c
+	ospfn_opaque_lsa.c tables.c utility.c ndn_fib.c ospfn.c
 
 ospfn_LDADD = ../ospfclient/libospfapiclient.la \
 	../ospfd/libospf.la ../lib/libzebra.la @LIBCAP@ -lccn -lcrypto
@@ -351,7 +351,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ospfn-ccn_fib.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ospfn-ndn_fib.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ospfn-ospfn_opaque_lsa.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ospfn-ospfn.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ospfn-tables.Po@am__quote@
@@ -421,19 +421,19 @@ ospfn-utility.obj: utility.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ospfn_CFLAGS) $(CFLAGS) -c -o ospfn-utility.obj `if test -f 'utility.c'; then $(CYGPATH_W) 'utility.c'; else $(CYGPATH_W) '$(srcdir)/utility.c'; fi`
 
-ospfn-ccn_fib.o: ccn_fib.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ospfn_CFLAGS) $(CFLAGS) -MT ospfn-ccn_fib.o -MD -MP -MF $(DEPDIR)/ospfn-ccn_fib.Tpo -c -o ospfn-ccn_fib.o `test -f 'ccn_fib.c' || echo '$(srcdir)/'`ccn_fib.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/ospfn-ccn_fib.Tpo $(DEPDIR)/ospfn-ccn_fib.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ccn_fib.c' object='ospfn-ccn_fib.o' libtool=no @AMDEPBACKSLASH@
+ospfn-ndn_fib.o: ndn_fib.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ospfn_CFLAGS) $(CFLAGS) -MT ospfn-ndn_fib.o -MD -MP -MF $(DEPDIR)/ospfn-ndn_fib.Tpo -c -o ospfn-ndn_fib.o `test -f 'ndn_fib.c' || echo '$(srcdir)/'`ndn_fib.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/ospfn-ndn_fib.Tpo $(DEPDIR)/ospfn-ndn_fib.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ndn_fib.c' object='ospfn-ndn_fib.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ospfn_CFLAGS) $(CFLAGS) -c -o ospfn-ccn_fib.o `test -f 'ccn_fib.c' || echo '$(srcdir)/'`ccn_fib.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ospfn_CFLAGS) $(CFLAGS) -c -o ospfn-ndn_fib.o `test -f 'ndn_fib.c' || echo '$(srcdir)/'`ndn_fib.c
 
-ospfn-ccn_fib.obj: ccn_fib.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ospfn_CFLAGS) $(CFLAGS) -MT ospfn-ccn_fib.obj -MD -MP -MF $(DEPDIR)/ospfn-ccn_fib.Tpo -c -o ospfn-ccn_fib.obj `if test -f 'ccn_fib.c'; then $(CYGPATH_W) 'ccn_fib.c'; else $(CYGPATH_W) '$(srcdir)/ccn_fib.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/ospfn-ccn_fib.Tpo $(DEPDIR)/ospfn-ccn_fib.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ccn_fib.c' object='ospfn-ccn_fib.obj' libtool=no @AMDEPBACKSLASH@
+ospfn-ndn_fib.obj: ndn_fib.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ospfn_CFLAGS) $(CFLAGS) -MT ospfn-ndn_fib.obj -MD -MP -MF $(DEPDIR)/ospfn-ndn_fib.Tpo -c -o ospfn-ndn_fib.obj `if test -f 'ndn_fib.c'; then $(CYGPATH_W) 'ndn_fib.c'; else $(CYGPATH_W) '$(srcdir)/ndn_fib.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/ospfn-ndn_fib.Tpo $(DEPDIR)/ospfn-ndn_fib.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ndn_fib.c' object='ospfn-ndn_fib.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ospfn_CFLAGS) $(CFLAGS) -c -o ospfn-ccn_fib.obj `if test -f 'ccn_fib.c'; then $(CYGPATH_W) 'ccn_fib.c'; else $(CYGPATH_W) '$(srcdir)/ccn_fib.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ospfn_CFLAGS) $(CFLAGS) -c -o ospfn-ndn_fib.obj `if test -f 'ndn_fib.c'; then $(CYGPATH_W) 'ndn_fib.c'; else $(CYGPATH_W) '$(srcdir)/ndn_fib.c'; fi`
 
 ospfn-ospfn.o: ospfn.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ospfn_CFLAGS) $(CFLAGS) -MT ospfn-ospfn.o -MD -MP -MF $(DEPDIR)/ospfn-ospfn.Tpo -c -o ospfn-ospfn.o `test -f 'ospfn.c' || echo '$(srcdir)/'`ospfn.c
