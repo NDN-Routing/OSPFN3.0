@@ -190,7 +190,7 @@ struct ndn_face_instance *create_face(struct ndn *h, struct ndn_charbuf *local_s
 	/* Construct the Interest name that will create the face */
 	name = ndn_charbuf_create();
 	ndn_name_init(name);
-	ndn_name_append_str(name, "ndn");
+	ndn_name_append_str(name, "ndnx");
 	ndn_name_append(name, face_instance->ndnd_id, face_instance->ndnd_id_size);
 	ndn_name_append_str(name, face_instance->action);
 	ndn_name_append(name, temp->buf, temp->length);
