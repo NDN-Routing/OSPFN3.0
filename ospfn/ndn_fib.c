@@ -120,7 +120,7 @@ register_unregister_prefix(struct ndn *h, struct ndn_charbuf *local_scope_templa
 	/* construct Interest containing prefixreg request */
 	name = ndn_charbuf_create();
 	ndn_name_init(name);
-	ndn_name_append_str(name, "ndnx");
+	ndn_name_append_str(name, "ndnx"); // change from ndn to ndnx
 	ndn_name_append(name, face_instance->ndnd_id, face_instance->ndnd_id_size);
 	ndn_name_append_str(name, (operation == OP_REG) ? "prefixreg" : "unreg");
 	ndn_name_append(name, temp->buf, temp->length);
