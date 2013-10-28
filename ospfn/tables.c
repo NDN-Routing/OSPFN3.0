@@ -38,11 +38,11 @@ hash_iterate_delete_npt (struct hash *hash){
 			{
 				writeLogg(ospfn->logFile,__FILE__,__FUNCTION__,__LINE__,"Deleting FIB prefix: Name: %s, Next Hop: %s, cost: %d, flag: %d\n",pte->nameprefix->name, inet_ntoa(n1->nexthop),n1->cost, n1->flag);
 				if(!is_nexthop(inet_ntoa(n1->nexthop)))	
-					delete_ndn_face(ndn_handle, (char *)pte->nameprefix->name, inet_ntoa(n1->nexthop), 9695); 
+					delete_ndn_face(ndn_handle, (char *)pte->nameprefix->name, inet_ntoa(n1->nexthop), 6363); 
 				n1 = n1->next;
 			}
 			for(j=1;j<=no_element;j++)
-				delete_ndn_face(ndn_handle, (char *)pte->nameprefix->name, inet_ntoa(pop_nexthop_from_position(j)),9695);
+				delete_ndn_face(ndn_handle, (char *)pte->nameprefix->name, inet_ntoa(pop_nexthop_from_position(j)),6363);
 	
 			hbnext = hb->next;
 		}
@@ -452,14 +452,14 @@ update_name_prefix_nexthop_list(struct prefixtable_entry *fe, struct hash *origi
 	while (nhe)
 	{
 		if(!is_nexthop(inet_ntoa(nhe->nexthop)))	
-			delete_ndn_face(ndn_handle, (char *)fe->nameprefix->name, inet_ntoa(nhe->nexthop), 9695);
+			delete_ndn_face(ndn_handle, (char *)fe->nameprefix->name, inet_ntoa(nhe->nexthop), 6363);
 		fe->nexthop_list = nhe->next;
 		free(nhe);
 		nhe = fe->nexthop_list;
 	}
 
 	for(j=1;j<=no_element;j++)
-		delete_ndn_face(ndn_handle, (char *)fe->nameprefix->name, inet_ntoa(pop_nexthop_from_position(j)),9695);	
+		delete_ndn_face(ndn_handle, (char *)fe->nameprefix->name, inet_ntoa(pop_nexthop_from_position(j)),6363);	
 	
 	//foreach origin in origin_list
 	while (o)
@@ -482,11 +482,11 @@ update_name_prefix_nexthop_list(struct prefixtable_entry *fe, struct hash *origi
 				for(j=1;j<=no_element;j++)
 				{		
 					if(inet_addr(inet_ntoa(nhe->nexthop)) != inet_addr(inet_ntoa(pop_nexthop_from_position(j)))){		
-					add_ndn_face(ndn_handle, (char *)fe->nameprefix->name, inet_ntoa(pop_nexthop_from_position(j)),9695);
+					add_ndn_face(ndn_handle, (char *)fe->nameprefix->name, inet_ntoa(pop_nexthop_from_position(j)),6363);
 					writeLogg(ospfn->logFile,__FILE__,__FUNCTION__,__LINE__," Adding face to ndn for prefix : %s nexthop : %s\n",(char *)fe->nameprefix->name, inet_ntoa(pop_nexthop_from_position(j)));	
 					}
 				}	
-				add_ndn_face(ndn_handle, (char *)fe->nameprefix->name, inet_ntoa(nhe->nexthop), 9695);
+				add_ndn_face(ndn_handle, (char *)fe->nameprefix->name, inet_ntoa(nhe->nexthop), 6363);
 				writeLogg(ospfn->logFile,__FILE__,__FUNCTION__,__LINE__," Adding face to ndn for prefix : %s nexthop : %s\n",(char *)fe->nameprefix->name, inet_ntoa(nhe->nexthop));
 			}	
 			nhe = nhe->next;
