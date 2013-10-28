@@ -156,22 +156,22 @@ register_unregister_prefix(struct ndn *h, struct ndn_charbuf *local_scope_templa
 		//ndn_charbuf_destroy(&prefixreg);
 
 		if ( new_forwarding_entry ){ 
-			ccn_forwarding_entry_destroy(&new_forwarding_entry);
+			ndn_forwarding_entry_destroy(&new_forwarding_entry);
 		}
 		if ( signed_info ){
-			ccn_charbuf_destroy(&signed_info);
+			ndn_charbuf_destroy(&signed_info);
 		}
 		if ( temp ){
-			ccn_charbuf_destroy(&temp);
+			ndn_charbuf_destroy(&temp);
 		}
 		if ( resultbuf ){
-			ccn_charbuf_destroy(&resultbuf);
+			ndn_charbuf_destroy(&resultbuf);
 		}
 		if ( name ){
-			ccn_charbuf_destroy(&name);
+			ndn_charbuf_destroy(&name);
 		}
 		if ( prefixreg ){
-			ccn_charbuf_destroy(&prefixreg);
+			ndn_charbuf_destroy(&prefixreg);
 		}
 
 	return -1;
@@ -240,19 +240,19 @@ struct ndn_face_instance *create_face(struct ndn *h, struct ndn_charbuf *local_s
 		//ndn_charbuf_destroy(&name);
 
 		if ( newface ){
-			ccn_charbuf_destroy(&newface);
+			ndn_charbuf_destroy(&newface);
 		}
 		if ( signed_info ){
-			ccn_charbuf_destroy(&signed_info);
+			ndn_charbuf_destroy(&signed_info);
 		}
 		if ( temp ){
-			ccn_charbuf_destroy(&temp);
+			ndn_charbuf_destroy(&temp);
 		}
 		if ( resultbuf ){
-			ccn_charbuf_destroy(&resultbuf);
+			ndn_charbuf_destroy(&resultbuf);
 		}
 		if ( name ){
-			ccn_charbuf_destroy(&name);
+			ndn_charbuf_destroy(&name);
 		}
 
 	return NULL;
@@ -439,16 +439,16 @@ add_delete_ndn_face(struct ndn *h, const char *uri, const char *address, const u
 		//ndn_face_instance_destroy(&nfi);
 
 		if ( prefix ){
-			ccn_charbuf_destroy(&prefix);
+			ndn_charbuf_destroy(&prefix);
 		}
 		if ( no_name ){
-			ccn_charbuf_destroy(&no_name);
+			ndn_charbuf_destroy(&no_name);
 		}
 		if ( fi ){
-			ccn_face_instance_destroy(&fi);
+			ndn_face_instance_destroy(&fi);
 		}
 		if ( nfi ){
-			ccn_face_instance_destroy(&nfi);
+			ndn_face_instance_destroy(&nfi);
 		}
 
 	return -1;
