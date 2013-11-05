@@ -501,7 +501,7 @@ add_new_name_prefix(struct ospf_apiclient *oclient, struct hash *prefix_table, s
 {
 	struct prefixtable_entry *fe;
 	struct origintable_entry *oe;
-	int rc;
+	//int rc;
 
 	fe = prefix_hash_get(prefix_table, np);
 	insert_origin_to_list(&fe->origin_list, origin);
@@ -511,7 +511,7 @@ add_new_name_prefix(struct ospf_apiclient *oclient, struct hash *prefix_table, s
 
 	if (oe->nexthop_list == NULL)
  	{	
-		rc=ospf_apiclient_get_router_nexthops(oclient, *origin);
+		ospf_apiclient_get_router_nexthops(oclient, *origin);
 		//writeLogg(ospfn->logFile,__FILE__,__FUNCTION__,__LINE__,"Return from nexthop query: %d\n",rc);	
 		//writeLogg(ospfn->logFile,__FILE__,__FUNCTION__,__LINE__,"Nexthop Null for origin: %s and prefix: %s\n",inet_ntoa(*origin),np->name);	
 	}	

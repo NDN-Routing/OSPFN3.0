@@ -50,7 +50,7 @@ struct ndnx_adjacent_opaque_lsa
 void ndnx_opaque_lsa_print (struct ndnx_opaque_lsa  *col);
 void ndnx_name_opaque_lsa_print (struct ndnx_opaque_lsa  *ol);
 
-void ospf_router_lsa_print (struct router_lsa  *rl, u_int16_t length);
+void ospf_router_lsa_print (struct router_lsa  *rl);
 void ndnx_lsa_header_dump (struct lsa_header *lsah);
 
 

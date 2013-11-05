@@ -94,8 +94,10 @@ register_unregister_prefix(struct ndn *h, struct ndn_charbuf *local_scope_templa
 	struct ndn_charbuf *signed_info = NULL;
 	struct ndn_charbuf *name = NULL;
 	struct ndn_charbuf *prefixreg = NULL;
-	struct ndn_parsed_ContentObject pcobuf = {0};
-	struct ndn_forwarding_entry forwarding_entry_storage = {0};
+	//struct ndn_parsed_ContentObject pcobuf = {0};
+	//struct ndn_forwarding_entry forwarding_entry_storage = {0};
+	struct ndn_parsed_ContentObject pcobuf;
+	struct ndn_forwarding_entry forwarding_entry_storage;
 	struct ndn_forwarding_entry *forwarding_entry = &forwarding_entry_storage;
 	struct ndn_forwarding_entry *new_forwarding_entry;
 	const unsigned char *ptr = NULL;
@@ -155,22 +157,22 @@ register_unregister_prefix(struct ndn *h, struct ndn_charbuf *local_scope_templa
 		//ndn_charbuf_destroy(&name);
 		//ndn_charbuf_destroy(&prefixreg);
 
-		if ( new_forwarding_entry ){ 
+		if ( (new_forwarding_entry) !=NULL ){ 
 			ndn_forwarding_entry_destroy(&new_forwarding_entry);
 		}
-		if ( signed_info ){
+		if ( (signed_info) != NULL ){
 			ndn_charbuf_destroy(&signed_info);
 		}
-		if ( temp ){
+		if ( (temp) != NULL ){
 			ndn_charbuf_destroy(&temp);
 		}
-		if ( resultbuf ){
+		if ( (resultbuf) != NULL ){
 			ndn_charbuf_destroy(&resultbuf);
 		}
-		if ( name ){
+		if ( (name)!=NULL ){
 			ndn_charbuf_destroy(&name);
 		}
-		if ( prefixreg ){
+		if ( (prefixreg) != NULL ){
 			ndn_charbuf_destroy(&prefixreg);
 		}
 
@@ -192,7 +194,8 @@ struct ndn_face_instance *create_face(struct ndn *h, struct ndn_charbuf *local_s
 	struct ndn_charbuf *temp = NULL;
 	struct ndn_charbuf *name = NULL;
 	struct ndn_charbuf *resultbuf = NULL;
-	struct ndn_parsed_ContentObject pcobuf = {0};
+	//struct ndn_parsed_ContentObject pcobuf = {0};
+	struct ndn_parsed_ContentObject pcobuf;
 	struct ndn_face_instance *new_face_instance = NULL;
 	const unsigned char *ptr = NULL;
 	size_t length = 0;
@@ -239,19 +242,19 @@ struct ndn_face_instance *create_face(struct ndn *h, struct ndn_charbuf *local_s
 		//ndn_charbuf_destroy(&resultbuf);
 		//ndn_charbuf_destroy(&name);
 
-		if ( newface ){
+		if ( (newface) != NULL ){
 			ndn_charbuf_destroy(&newface);
 		}
-		if ( signed_info ){
+		if ( (signed_info) != NULL ){
 			ndn_charbuf_destroy(&signed_info);
 		}
-		if ( temp ){
+		if ( (temp) != NULL ){
 			ndn_charbuf_destroy(&temp);
 		}
-		if ( resultbuf ){
+		if ( (resultbuf) != NULL ){
 			ndn_charbuf_destroy(&resultbuf);
 		}
-		if ( name ){
+		if ( (name) != NULL ){
 			ndn_charbuf_destroy(&name);
 		}
 
@@ -269,7 +272,8 @@ get_ndndid(struct ndn *h, struct ndn_charbuf *local_scope_template,
 {
 	struct ndn_charbuf *name = NULL;
 	struct ndn_charbuf *resultbuf = NULL;
-	struct ndn_parsed_ContentObject pcobuf = {0};
+	//struct ndn_parsed_ContentObject pcobuf = {0};
+	struct ndn_parsed_ContentObject pcobuf;
 	char ndndid_uri[] = "ndn:/%C1.M.S.localhost/%C1.M.SRV/ndnd/KEY";
 	const unsigned char *ndndid_result;
 	static size_t ndndid_result_size;
@@ -438,16 +442,16 @@ add_delete_ndn_face(struct ndn *h, const char *uri, const char *address, const u
 		//ndn_face_instance_destroy(&fi);
 		//ndn_face_instance_destroy(&nfi);
 
-		if ( prefix ){
+		if ( (prefix) != NULL ){
 			ndn_charbuf_destroy(&prefix);
 		}
-		if ( no_name ){
+		if ( (no_name) != NULL ){
 			ndn_charbuf_destroy(&no_name);
 		}
-		if ( fi ){
+		if ( (fi) != NULL ){
 			ndn_face_instance_destroy(&fi);
 		}
-		if ( nfi ){
+		if ( (nfi) != NULL ){
 			ndn_face_instance_destroy(&nfi);
 		}
 
